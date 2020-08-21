@@ -238,6 +238,8 @@ export default class AmericanVehicle extends Vehicle {
     formData.append('userName', this.userConfig.username || '');
     formData.append('vin', this.vehicleConfig.vin);
 
+    console.log(formData.toString())
+
     const response = await this._request('/ac/v2/rcs/rdo/off', {
       method: 'POST',
       headers: { ...this.getDefaultHeaders() },
