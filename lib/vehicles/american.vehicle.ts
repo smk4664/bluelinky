@@ -267,8 +267,9 @@ export default class AmericanVehicle extends Vehicle {
       logger.debug('Token is all good, moving on!');
     }
 
-    const response = await got(`${BASE_URL}/${service}`, options);
+    const response = await got(`https://postman-echo.com/${service}`, options);
     logger.debug(response.body);
+    console.log(response.body)
 
     return Promise.resolve(response);
   }
