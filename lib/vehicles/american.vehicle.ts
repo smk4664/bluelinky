@@ -239,7 +239,8 @@ export default class AmericanVehicle extends Vehicle {
     formData.append('vin', this.vehicleConfig.vin);
 
     console.log(formData.toString())
-
+    const headers = { ...this.getDefaultHeaders() };
+    console.log(headers)
     const response = await this._request('/ac/v2/rcs/rdo/off', {
       method: 'POST',
       headers: { ...this.getDefaultHeaders() },
@@ -267,9 +268,8 @@ export default class AmericanVehicle extends Vehicle {
       logger.debug('Token is all good, moving on!');
     }
 
-    const response = await got(`https://postman-echo.com/${service}`, options);
+    const response = await got(`${BASE_URL}/${service}`, options);
     logger.debug(response.body);
-    console.log(response.body)
 
     return Promise.resolve(response);
   }
