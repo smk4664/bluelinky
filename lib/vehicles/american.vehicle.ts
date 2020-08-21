@@ -270,7 +270,6 @@ export default class AmericanVehicle extends Vehicle {
 
     const response = await got(`${BASE_URL}/${service}`, options);
     logger.debug(response.body);
-    console.log(response.options)
     console.log(response.request)
 
     return Promise.resolve(response);
